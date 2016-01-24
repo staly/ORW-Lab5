@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<title>przykład z wykorzystaniem setInterval/clearInterval</title>
+<meta charset="UTF-8" />
+
+<script type="text/javascript">
+var idInterwalu;
+
+function zmienKolor() {
+  idInterwalu = setInterval(zmienKolorTekstu, 1000);
+}
+
+function zmienKolorTekstu() {
+  var elem = document.getElementById("my_box");
+  if (elem.style.color == 'red') {
+    elem.style.color = 'blue';
+  } else {
+    elem.style.color = 'red';
+	
+  }
+}
+
+function zatrzymajZmianeKoloru() {
+  clearInterval(idInterwalu);
+}
+</script>
+</head>
+
+<body onload="zmienKolor();">
+<div id="my_box">
+<p>Piotr Nastały</p>
+</div>
+<button onclick="zatrzymajZmianeKoloru();">Stop</button>
+</body>
+</html>
